@@ -108,4 +108,4 @@ For batch prediction, the uploaded CSV must contain these columns with the same 
 
 ## Author
 
-Varsha Praveen
+Varsha M V
