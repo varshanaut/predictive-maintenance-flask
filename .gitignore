@@ -1,0 +1,6 @@
+model.joblib
+predictive.csv
+__pycache__/
+venv/
+.ipynb_checkpoints/
+*.pyc

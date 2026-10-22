@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<div class="text-center mb-4">
+  <h2 class="fw-bold">Model Dashboard</h2>
+  <p class="text-muted">Selected model: <strong>{{ best_model_name }}</strong></p>
+</div>
+
+<div class="row g-4 justify-content-center">
+  <div class="col-md-4">
+    <div class="card border-0 shadow-sm text-center h-100">
+      <div class="card-body">
+        <h5 class="card-title">Single Prediction</h5>
+        <p class="text-muted">Enter machine parameters and get failure risk</p>
+        <a href="{{ url_for('predict') }}" class="btn btn-primary">Go to Predict</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card border-0 shadow-sm text-center h-100">
+      <div class="card-body">
+        <h5 class="card-title">Batch Prediction</h5>
+        <p class="text-muted">Upload CSV and predict for multiple machines</p>
+        <a href="{{ url_for('batch') }}" class="btn btn-primary">Go to Batch</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card border-0 shadow-sm text-center h-100">
+      <div class="card-body">
+        <h5 class="card-title">About</h5>
+        <p class="text-muted">Model details and trade-off discussion</p>
+        <a href="{{ url_for('about') }}" class="btn btn-outline-primary">View About</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

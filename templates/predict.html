@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}Predict{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-lg-8">
+    <div class="card border-0 shadow-sm">
+      <div class="card-header bg-white">
+        <h4 class="mb-0">Single Machine Prediction</h4>
+      </div>
+      <div class="card-body">
+        <form method="POST">
+          <div class="row g-3">
+            <div class="col-md-4">
+              <label class="form-label">Product Type</label>
+              <select name="Type" class="form-select" required>
+                <option value="L">L – Low</option>
+                <option value="M" selected>M – Medium</option>
+                <option value="H">H – High</option>
+              </select>
+            </div>
+            <div class="col-md-4">
+              <label class="form-label">Air Temperature [K]</label>
+              <input type="number" step="0.1" name="air_temp" class="form-control" value="298.5" required>
+            </div>
+            <div class="col-md-4">
+              <label class="form-label">Process Temperature [K]</label>
+              <input type="number" step="0.1" name="process_temp" class="form-control" value="308.5" required>
+            </div>
+            <div class="col-md-4">
+              <label class="form-label">Rotational Speed [rpm]</label>
+              <input type="number" name="rpm" class="form-control" value="1500" required>
+            </div>
+            <div class="col-md-4">
+              <label class="form-label">Torque [Nm]</label>
+              <input type="number" step="0.1" name="torque" class="form-control" value="40.0" required>
+            </div>
+            <div class="col-md-4">
+              <label class="form-label">Tool Wear [min]</label>
+              <input type="number" name="tool_wear" class="form-control" value="100" required>
+            </div>
+          </div>
+          <div class="mt-4 d-grid">
+            <button type="submit" class="btn btn-primary btn-lg">Predict Failure Risk</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

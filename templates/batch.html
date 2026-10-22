@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Batch{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-lg-8">
+    <div class="card border-0 shadow-sm">
+      <div class="card-header bg-white">
+        <h4 class="mb-0">Batch CSV Prediction</h4>
+      </div>
+      <div class="card-body">
+        <p>Required columns in CSV:</p>
+        <ul>
+          <li><code>Type</code> (L / M / H)</li>
+          <li><code>Air temperature [K]</code></li>
+          <li><code>Process temperature [K]</code></li>
+          <li><code>Rotational speed [rpm]</code></li>
+          <li><code>Torque [Nm]</code></li>
+          <li><code>Tool wear [min]</code></li>
+        </ul>
+        <form method="POST" enctype="multipart/form-data">
+          <input type="file" name="file" class="form-control mb-3" accept=".csv" required>
+          <button type="submit" class="btn btn-primary">Upload & Predict</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

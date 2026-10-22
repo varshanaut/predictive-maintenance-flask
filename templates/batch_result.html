@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}Batch Results{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h2 class="fw-bold mb-0">Batch Results</h2>
+  <a href="{{ url_for('download_batch') }}" class="btn btn-success">Download CSV</a>
+</div>
+
+<div class="row g-3 mb-4">
+  <div class="col"><div class="card text-center shadow-sm"><div class="card-body">
+    <div class="fs-3 fw-bold">{{ summary.total }}</div><div class="text-muted">Total</div>
+  </div></div></div>
+  <div class="col"><div class="card text-center shadow-sm"><div class="card-body">
+    <div class="fs-3 fw-bold text-danger">{{ summary.failures }}</div><div class="text-muted">Failures</div>
+  </div></div></div>
+  <div class="col"><div class="card text-center shadow-sm"><div class="card-body">
+    <div class="fs-3 fw-bold text-danger">{{ summary.high_risk }}</div><div class="text-muted">High Risk</div>
+  </div></div></div>
+  <div class="col"><div class="card text-center shadow-sm"><div class="card-body">
+    <div class="fs-3 fw-bold text-warning">{{ summary.medium_risk }}</div><div class="text-muted">Medium</div>
+  </div></div></div>
+  <div class="col"><div class="card text-center shadow-sm"><div class="card-body">
+    <div class="fs-3 fw-bold text-success">{{ summary.low_risk }}</div><div class="text-muted">Low</div>
+  </div></div></div>
+</div>
+
+<div class="card shadow-sm">
+  <div class="card-header">Preview (first 50 rows)</div>
+  <div class="card-body table-responsive">
+    <table class="table table-sm table-hover">
+      <thead><tr>{% for col in columns %}<th>{{ col }}</th>{% endfor %}</tr></thead>
+      <tbody>
+        {% for row in preview %}
+        <tr>
+          {% for col in columns %}
+          <td>
+            {% if col == 'Risk_Category' %}
+              <span class="badge bg-{{ 'danger' if row[col]=='High' else ('warning' if row[col]=='Medium' else 'success') }}">
+                {{ row[col] }}
+              </span>
+            {% elif col == 'Failure_Prediction' %}
+              {{ 'Yes' if row[col]==1 else 'No' }}
+            {% else %}
+              {{ row[col] }}
+            {% endif %}
+          </td>
+          {% endfor %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

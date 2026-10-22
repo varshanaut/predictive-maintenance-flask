@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}About{% endblock %}
+{% block content %}
+<div class="col-lg-10 mx-auto">
+  <h2 class="fw-bold">About This Project</h2>
+  <p>Predictive Maintenance system using Machine Learning and Flask.</p>
+
+  <h4 class="mt-4">Selected Model</h4>
+  <p><strong>{{ best_model_name }}</strong></p>
+
+  <h4 class="mt-4">Trade-off</h4>
+  <p>
+    Missed failures (False Negatives) are more costly than false alarms.
+    The model prioritises high Recall while keeping Precision acceptable.
+  </p>
+</div>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Result{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-lg-8">
+    <div class="card border-0 shadow-sm">
+      <div class="card-header bg-white d-flex justify-content-between">
+        <h4 class="mb-0">Prediction Result</h4>
+        <a href="{{ url_for('predict') }}" class="btn btn-sm btn-outline-primary">New Prediction</a>
+      </div>
+      <div class="card-body text-center py-5">
+        {% if result.prediction == 1 %}
+          <h2 class="text-danger fw-bold">{{ result.label }}</h2>
+        {% else %}
+          <h2 class="text-success fw-bold">{{ result.label }}</h2>
+        {% endif %}
+        <p class="lead mt-3">
+          Failure Probability: <strong class="fs-3">{{ result.probability }}%</strong>
+        </p>
+        <span class="badge bg-{{ result.badge }} fs-5 px-3 py-2">Risk: {{ result.risk }}</span>
+
+        <hr class="my-4">
+        <h6 class="text-muted">Input Parameters</h6>
+        <table class="table table-sm w-75 mx-auto text-start">
+          <tr><td>Type</td><td class="text-end">{{ result.inputs.Type }}</td></tr>
+          <tr><td>Air Temperature</td><td class="text-end">{{ result.inputs['Air temperature [K]'] }} K</td></tr>
+          <tr><td>Process Temperature</td><td class="text-end">{{ result.inputs['Process temperature [K]'] }} K</td></tr>
+          <tr><td>Rotational Speed</td><td class="text-end">{{ result.inputs['Rotational speed [rpm]'] }} rpm</td></tr>
+          <tr><td>Torque</td><td class="text-end">{{ result.inputs['Torque [Nm]'] }} Nm</td></tr>
+          <tr><td>Tool Wear</td><td class="text-end">{{ result.inputs['Tool wear [min]'] }} min</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
