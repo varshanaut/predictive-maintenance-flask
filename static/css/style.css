@@ -1,6 +1,208 @@
-body {
-  background-color: #f5f7fb;
+:root {
+  --pastel-blue: #a8d5e5;
+  --pastel-mint: #b8e0d2;
+  --pastel-lavender: #d4c1ec;
+  --pastel-peach: #f7c6c7;
+  --pastel-cream: #fef6e4;
+  --pastel-pink: #f2d0e0;
+  --soft-bg: #f8f6f9;
+  --card-bg: #ffffff;
+  --text-dark: #2d3436;
+  --text-muted: #636e72;
+  --primary: #7eb8da;
+  --primary-dark: #5a9bc4;
+  --success: #8fd6b8;
+  --warning: #f5c6a5;
+  --danger: #f0a8b0;
+  --shadow: 0 8px 24px rgba(126, 184, 218, 0.12);
+  --radius: 1rem;
 }
+
+body {
+  background: linear-gradient(160deg, #f8f6f9 0%, #eef6f9 50%, #f7f0f5 100%);
+  min-height: 100vh;
+  color: var(--text-dark);
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+/* Navbar */
+.navbar {
+  background: linear-gradient(90deg, #7eb8da, #a8d5e5) !important;
+  box-shadow: 0 4px 16px rgba(126, 184, 218, 0.25);
+  border: none;
+}
+
+.navbar-brand {
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.nav-link {
+  font-weight: 500;
+  border-radius: 0.5rem;
+  padding: 0.4rem 0.9rem !important;
+  transition: background 0.2s ease;
+}
+
+.nav-link:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Cards */
 .card {
+  border: none;
+  border-radius: var(--radius);
+  background: var(--card-bg);
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(126, 184, 218, 0.18);
+}
+
+.card-header {
+  background: linear-gradient(135deg, #f0f7fc, #faf5ff);
+  border-bottom: 1px solid #e8f0f5;
+  border-radius: var(--radius) var(--radius) 0 0 !important;
+  font-weight: 600;
+}
+
+/* Dashboard cards accent */
+.card .btn-primary {
+  background: linear-gradient(135deg, #7eb8da, #a8d5e5);
+  border: none;
+  border-radius: 2rem;
+  padding: 0.55rem 1.4rem;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(126, 184, 218, 0.35);
+  transition: all 0.2s ease;
+}
+
+.card .btn-primary:hover {
+  background: linear-gradient(135deg, #5a9bc4, #7eb8da);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(126, 184, 218, 0.45);
+}
+
+.btn-outline-primary {
+  border-color: #7eb8da;
+  color: #5a9bc4;
+  border-radius: 2rem;
+  font-weight: 600;
+}
+
+.btn-outline-primary:hover {
+  background: #7eb8da;
+  border-color: #7eb8da;
+  color: #fff;
+}
+
+/* Forms */
+.form-control,
+.form-select {
   border-radius: 0.75rem;
+  border: 1.5px solid #e0eaf0;
+  padding: 0.6rem 0.9rem;
+  background: #fdfefe;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: #7eb8da;
+  box-shadow: 0 0 0 3px rgba(126, 184, 218, 0.2);
+}
+
+.form-label {
+  font-weight: 600;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* Result page */
+.badge {
+  border-radius: 2rem;
+  padding: 0.5rem 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.bg-success {
+  background: linear-gradient(135deg, #8fd6b8, #b8e0d2) !important;
+  color: #1a4d3a !important;
+}
+
+.bg-warning {
+  background: linear-gradient(135deg, #f5c6a5, #fce4d0) !important;
+  color: #6b3a1a !important;
+}
+
+.bg-danger {
+  background: linear-gradient(135deg, #f0a8b0, #f7c6c7) !important;
+  color: #6b1f2a !important;
+}
+
+/* Tables */
+.table {
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.table thead th {
+  background: linear-gradient(135deg, #eef6f9, #f5f0fa);
+  border: none;
+  font-weight: 600;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.table-hover tbody tr:hover {
+  background: #f0f7fc;
+}
+
+/* Alerts */
+.alert {
+  border: none;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+/* Footer */
+footer {
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* Page headings */
+h2.fw-bold,
+h4.mb-0 {
+  color: #3d5a6c;
+}
+
+.text-muted {
+  color: #7a8a94 !important;
+}
+
+/* Soft section spacing */
+main.container {
+  padding-top: 1.5rem;
+  padding-bottom: 2rem;
+}
+
+/* Batch summary cards */
+.row.g-3 .card .fs-3 {
+  color: #3d5a6c;
+}
+
+/* File input polish */
+input[type="file"].form-control {
+  padding: 0.5rem;
+}
+
+/* Smooth links */
+a {
+  text-decoration: none;
 }
